@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Problem solving using buble js concept and other concepts</title>
+    <style>
+        body {
+            font-size: 40px;
+
+        }
+
+        #container {
+            min-width: 500px;
+            min-height: 500px;
+            border-radius: 30px;
+            color: rgba(243, 219, 4, 0.849);
+            background-color: black;
+        }
+
+        #btn {
+            font-size: 30px;
+            padding: 10px;
+            color: rgba(243, 219, 4, 0.849);
+            background-color: transparent;
+            border-radius: 20px;
+
+        }
+
+        #btn:hover {
+            background-color: yellowgreen;
+        }
+
+        .red {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <ul id="myList">
+            <h1>My List</h1>
+            <li id="first" class="item">This is li - 1</li>
+            <li class="item">This is li - 2</li>
+            <li class="item">This is li - 3</li>
+            <li class="item">This is li - 4</li>
+        </ul>
+    </div>
+    <button id="btn">ADD new list</button>
+
+
+    <script>
+        // যেটিকে ক্লিক করবা ওটাকেই দেখাবে এমন কন্সল নির্ণয়
+
+        /*   var items = document.getElementsByClassName('item');
+           for (let i = 0; i < items.length; i++) {
+               var item = items[i];
+               item.addEventListener('click', function (event) {
+                   console.log(this);
+               }) */
+
+
+        // যেটিকে ক্লিক করবে ওটির ইভেন্ট লিস্টেন হবে এবং ওটি ডিসপ্লে থেকে সরে যাবে
+
+        var items = document.getElementsByClassName('item');
+        for (let i = 0; i < items.length; i++) {
+            var item = items[i];
+            item.addEventListener('click', function (event) {
+                event.target.parentNode.removeChild(event.target);
+            })
+        }
+
+
+        // বাটন টিতে ইভেন্ট লিস্টেনার এড করতে হবে যেখানে বাটন টিতে ক্লিক করলে নতুন একটি লিস্ট আইটেম যুক্ত হবে
+
+
+        document.getElementById('btn').addEventListener('click', function (event) {
+            var itemParent = document.getElementById("myList");
+            var newItem = document.createElement('li');
+            newItem.innerText = "New list is created";
+            newItem.classList.add('red');
+            itemParent.appendChild(newItem);
+
+        })
+
+        // বাটন দিয়ে  এড করা নতুন লিস্ট আইটেম গুলি সহ যেটিকে ক্লিক করবে ওটির ইভেন্ট লিস্টেন হবে এবং ওটি ডিসপ্লে থেকে সরে যাবে
+
+        document.getElementById("myList").addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

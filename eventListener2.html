@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.mystyle {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+}
+
+</style>
+</head>
+<body>
+
+
+
+<button type="button"  class="btn">click here</button>
+
+<div id="myDIV">
+This is a DIV element.
+</div>
+
+<script>
+    var btn=document.querySelector(".btn");
+    btn.addEventListener("click","click")
+    function() click() {
+   var element = document.getElementById("myDIV");
+   element.classList.add("mystyle");
+}
+</script>
+
+</body>
+</html>
+

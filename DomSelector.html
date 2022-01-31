@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Selectors</title>
+</head>
+<style>
+    .container {
+        background-color: rgb(4, 211, 211);
+        border: 2px solid grey;
+        margin: 10px;
+
+    }
+    #list-item{
+        background-color: seagreen;
+        font-size: 20px;
+        color: white;
+        display: flex;
+        margin: 10px;
+        
+    }
+    #list-item h3{
+margin: 30px;
+        
+    }
+    #list-item ul li{
+        list-style: none;
+        padding: 10px;
+        font-size: 30px;
+        
+    }
+</style>
+
+<body>
+    <div class="container" id="div-container">
+
+        <h1 class="head">This Heading</h1>
+        <p class="paragraph">this is paragraph</p>
+        <button class="button">This is button</button>
+    </div>
+    <div class="container">
+
+        <h1 class="head">This Heading</h1>
+        <p class="paragraph">this is paragraph</p>
+        <button class="button">This is button</button>
+    </div>
+    <div class="container">
+
+        <h1 class="head">This Heading</h1>
+        <p class="paragraph">this is paragraph</p>
+        <button class="button">This is button</button>
+    </div>
+
+    <div id="list-item">
+        <h3>this is all about list item</h3>
+        <ul>
+            <li>This is LIst</li>
+            <li>This is LIst-2</li>
+            <li>This is LIst-3</li>
+            <li>This is LIst-4</li>
+        </ul>
+    </div>
+
+
+
+
+    <script>
+        const listItemAdd = document.querySelector("#list-item ul");
+        for (let i = 0; i < listItemAdd.length; i++) {
+            var item = listItemAdd[i];
+            item.style.backgroundColor = "tomato";
+        }
+
+        const li = document.createElement("li");
+        li.innerHTML = "This is list which i created by javascript";
+        listItemAdd.appendChild(li);
+        for (let i = 0; i < listItemAdd.length; i++) {
+            let item = listItemAdd[i];
+            item.style.backgroundColor = "tomato";
+        }
+
+
+
+        let heading = document.querySelectorAll('head');
+        for (var i = 0; i < heading.length; i++) {
+            var element = heading[i];
+            element.style.backgroundColor = 'red';
+
+
+        }
+
+        // adding inner html doucument
+
+        const firstDiv = document.querySelector("#div-container");
+        const h3 = document.createElement("h3");
+        h3.innerHTML = "This is H3 which is Added by javascript";
+        firstDiv.appendChild(h3);
+
+
+
+        let container = document.getElementsByClassName("container");
+        for (var i = 0; i < container.length; i++) {
+            let element = container[i];
+            element.style.backgroundColor = "yellow";
+            element.style.color = "tomato";
+            element.style.fontSize = "30px";
+            element.style.marginTop = "2rem";
+            element.style.borderRadius = "2rem";
+            element.style.marginLeft = "2rem";
+        }
+        let paragraph = document.getElementsByTagName("p");
+        for (var i = 0; i < paragraph.length; i++) {
+            let elementParagarph = paragraph[i];
+            elementParagarph.style.display = "inline-block";
+            elementParagarph.style.margin = "50px";
+            elementParagarph.style.border = "5px";
+            elementParagarph.style.borderColor = "black";
+            elementParagarph.style.borderRadius = "2rem";
+
+
+
+        }
+
+        let button = document.querySelectorAll('button');
+        for (var i = 0; i < button.length; i++) {
+            let elemenButton = button[i];
+            elemenButton.style.fontSize = '30px';
+            elemenButton.style.padding = '20px';
+            elemenButton.style.borderRadius = '15px';
+            elemenButton.style.background = 'transparent';
+        }
+
+    </script>
+</body>
+
+</html>
